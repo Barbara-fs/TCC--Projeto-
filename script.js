@@ -3,5 +3,5 @@ function irParaOpções() {
 }
 
 function irParaAcessoVendas() {
-  window.location.href = 'Acessovendas.html';
+  window.location.href = 'PaginaInicial.html';
 }
