@@ -1,0 +1,7 @@
+function irParaOpções() {
+  window.location.href = 'Opções.html';
+}
+
+function irParaAcessoVendas() {
+  window.location.href = 'Acessovendas.html';
+}

@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Barcode+128+Text&display=swap');
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #43db43; /* verde claro */
+}
+
+/* Página Inicial */
+.pagina-inicial {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.barcode-text {
+  font-family: 'Libre Barcode 128 Text', cursive;
+  font-size: 48px;
+  color: #434141; /* cinza */
+  margin: 0;
+}
+
+.btn {
+  margin-top: 40px;
+  padding: 15px 30px;
+  font-size: 18px;
+  border: none;
+  background-color: #888888; /* cinza */
+  color: white;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background-color: #666666;
+}
+
+/* Página Catálogo */
+.pagina-catalogo header {
+  padding: 20px 30px;
+  background-color: #34b234;
+}
+
+.logo {
+  font-family: 'Libre Barcode 128 Text', cursive;
+  font-size: 36px;
+  color: #434141;
+  user-select: none;
+}
+
+.catalogo {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;
+  padding: 40px;
+  max-width: 960px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
+  font-family: 'Libre Barcode 128 Text', cursive;
+  font-size: 24px;
+  color: #434141;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  transform: translateY(-5px);
+}
+
+/* Página Vendas */
+.pagina-vendas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.container-vendas .btn {
+  width: 200px;
+}
+
+
+<style>
+    body {
+      margin: 0;
+      background-color: #43db43; /* verde claro */
+      font-family: Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      padding: 20px 30px;
+      background-color: #34b234;
+    }
+
+    .logo {
+      font-family: 'Libre Barcode 128 Text', cursive;
+      font-size: 36px;
+      color: #434141;
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    main {
+      flex-grow: 1;
+      padding: 40px 30px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 20px;
+      max-width: 960px;
+      margin: 0 auto;
+      box-sizing: border-box;
+    }
+
+    .card {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 120px;
+      font-family: 'Libre Barcode 128 Text', cursive;
+      font-size: 24px;
+      color: #434141;
+      text-align: center;
+      cursor: pointer;
+      user-select: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+      transform: translateY(-5px);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">Verkaufe Conectados</div>
+  </header>
+
+  <main>
+    <div class="card">Vendas</div>
+    <div class="card">Leads</div>
+    <div class="card">Portifólio</div>
+
+
+
+    <div class="card">Status da venda</div>
+    <div class="card">Cash back</div>
+    <div class="card">Pagamentos</div>
+
+   
+  </main>
+
+</body>
+</html>
