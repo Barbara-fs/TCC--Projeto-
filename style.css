@@ -9,7 +9,7 @@
 
 body {
   margin: 0;
-  background-color: #e0eae8
+  background-color: #e0eae8;
   font-family: "Roboto", sans-serif;
   min-height: 100vh;
   display: flex;
@@ -42,7 +42,7 @@ body {
   border: none;
   background-color: #521e3d;
   
-  color: white;
+  color: #eaf2ea;
   border-radius: 25px;
   cursor: pointer;
   transition: background 0.3s;
@@ -52,8 +52,12 @@ body {
   background-color: #521e3d;
 }
 
-.pagina-catalogo header {
+.pagina-Portifolio header {
   padding: 20px 30px;
+
+
+
+  background-color: #e0eae8;
 
 }
 
@@ -86,24 +90,23 @@ body {
   align-items: center;
   height: 120px;
   font-size: 24px;
-  color: #e0eae8;
+  color: #f4f9f1;
   text-align: center;
   cursor: pointer;
   user-select: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
-  
 
+ 
 
 }
 
 .card:hover {
-  box-shadow: 0 8px 16px rgba(233, 230, 230, 0.15);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
   transform: translateY(-5px);
-  
 
 }
 
-/* Página Vendas */
+
 .pagina-vendas {
   display: flex;
   justify-content: center;
@@ -151,77 +154,43 @@ a {
 }
 
 
-.placeholder {
-  color: #888888;
-
-}
-
-/* Processos da venda */
-.pagina-input-vendas
-{
+:double-button {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 200vh;
-  flex-direction: column;
-  gap: 40px;
-
-}
-
-.container-input-vendas {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
-
-.container-input-vendas .btn {
-  width: 200px;
-}
-.container-input-vendas h2 {
-  color: #434141;
-}
-.container-input-vendas form {
-  display: flex;
-  flex-direction: column;
   gap: 10px;
-  width: 100px;
-}
-
-.container-input-vendas input {
-  padding: 8px;
-  width: 100%;
-  border: none;
-  border-radius: 4px;
-  margin: 8px 0;;
 }
 
 
+.w-100 {
+    width: 100%;
+}
+
+.btn-row{
+    display: flex;
+    justify-content: flex-end;
+   padding:16px 0;
+float:right;
+ gap: 10px;
+}
+
+.w-80 {
+    width: 80%;
+
+}
 
 
 .pagina-Portifolio header {
-  padding: 20px 30px;
-
-
-
-  background-color: #e0eae8;
+  background-color: #521e3d;
 
 }
 
-button novo-cliente {
-    background-color: #656865;
-    color: white;
-    border: none;
-    padding: 8px;px 20px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: background 0.3s;
-    width: 150px;
-    height: 40px;
-    font-size: 16px;
-    scroll-margin-right: 20px;
-    margin-bottom: 20px;
-    display: block;
-
+header img.logo-image {
+  height: 100px;
 }
-
+.logo {
+  font-family: 'Libre Barcode 128 Text', cursive;
+  font-size: 36px;
+  color: #521e3d;;
+  user-select: none;
+  white-space: nowrap;
+  text-align: center;
+}
