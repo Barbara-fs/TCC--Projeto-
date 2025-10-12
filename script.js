@@ -23,3 +23,9 @@ function irParaCashback() {
 function irParaPag() {
   window.location.href = 'pag.html';
 }
+
+
+button class btn btn 
+
+document.getelementByID('form').addEventListener('submit', function(event) {
+  event.preventDefault(); // Impede o envio padrão do formulário
