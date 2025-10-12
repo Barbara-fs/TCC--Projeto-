@@ -5,3 +5,21 @@ function irParaOpções() {
 function irParaAcessoVendas() {
   window.location.href = 'PaginaInicial.html';
 }
+
+function irParaLeads() {
+  window.location.href = 'leads.html';
+}
+
+function irParaPortifolio() {
+  window.location.href = 'portifolio.html';
+}
+
+function irstatusDaVenda() {
+  window.location.href = 'statusdavenda.html';
+}
+function irParaCashback() {
+  window.location.href = 'cashback.html';
+}
+function irParaPag() {
+  window.location.href = 'pag.html';
+}

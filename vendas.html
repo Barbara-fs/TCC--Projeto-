@@ -1,24 +1,116 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8" />
-  <title>Opções</title>
+  <title>Vendas</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
 </head>
-<body class="pagina-Opções">
+
+<body class="Input de vendas">
+   <div class="box">
+        <div class="w-100">
   <header>
     <div class="logo">Verkaufe <br> Conectados</div>
   </header>
 
   <main>
     <div>
-      PREENCHER CONTEÚDO DA PÁGINA DE VENDAS
+
+
+      <form action="input Vendas">
+        <h2> Input da Vendas </h2>
+
+        <label for="codigo do cliente">Código do cliente</label>
+        <input type="text" id="codigo do cliente" name="codigo do cliente" required>
+        <button class="btn">Buscar</button>
+
+
+
+        <button class="btn btn-info" onclick="NovoCliente()">Novo cliente</button>
+
+
+        <div label for="Nome/Razao Social">Nome/Razao Social</label><br>
+          <input type="text" id="Nome/Razao Social" name="Nome/Razao Social" required> <br>
+
+
+
+          label for= "CNPJ/CPF"> CNPJ/CPF </label> <br>
+          <input type="text" id="CNPJ/CPF" name="CNPJ/CPF" required>
+          <br>
+          <label for="Código do produto">Código do produto</label><br>
+          <input type="text" id="Codigo do produto" name="Codigo do produto" required><br>
+
+          <label for=" Produto"> Produto</label><br>
+          <input type="text" id=" Produto" name=" Produto" required><br>
+
+          <label for=" Quantidade"> Quantidade</label><br>
+          <input type="text" id=" Quantidade" name=" Quantidade" required><br>
+
+
+          <label for=" Preço"> Preço</label> <br>
+          <input type="text" id=" Preço" name=" Preço" required ><br>
+
+<br>
+
+          <div class="input-group">
+            <form action="Endereço de Entrega">
+          </div>
+
+          <body>
+            <h2> Endereço de Entrega </h2>
+          </body>
+
+
+          <label for="CEP">CEP</label>
+          <input type="text" id=" CEP" name=" CEP" required <label for="Endereço">Endereço</label>
+          <input type="text" id=" Endereço" name=" Endereço" required <label for="Número">Número</label>
+          <input type="text" id=" Número" name=" Número" required <label for="Complemento">Complemento</label>
+          <input type="text" id=" Complemento" name=" Complemento" required <label for="Bairro">Bairro</label>
+          <input type="text" id=" Bairro" name=" Bairro" required <label for="Cidade">Cidade</label>
+          <input type="text" id=" Cidade" name=" Cidade" required <label for="Estado">Estado</label>
+          <input type="text" id=" Estado" name=" Estado" required <label for="País">País</label>
+          <input type="text" id=" País" name=" País" required 
+          
+         <br>
+
+
+
+
+
     </div>
+
+    <body>
+       <br>
+      <h2> Pagamentos </h2>
+
+<br>
+      <div class="input-group">
+
+
+        <label for="formaPagamento">Forma de Pagamento:</label>
+        <select id="formaPagamento" name="formaPagamento" required>
+          <br>
+          <option value="">Selecione</option>
+          <option value="cartaoCredito">Cartão de Crédito</option>
+          <option value="boleto">Boleto</option>
+          <option value="pix">PIX</option>
+          <option value="dinheiro">Dinheiro</option>
+        </select>
+      </div>
+      <div class="double-button">
+        <button class="btn">Salvar</button>
+        <button class="btn">Cancelar</button>
+      </div>
+
+      </div>
   </main>
 
   <script src="script.js"></script>
 </body>
+</form>
 </html>
