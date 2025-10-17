@@ -41,7 +41,7 @@ body {
   font-size: 09px;
   border: none;
   background-color: #521e3d;
-  
+
   color: #eaf2ea;
   border-radius: 25px;
   cursor: pointer;
@@ -95,8 +95,10 @@ body {
   cursor: pointer;
   user-select: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 2px #e0eae8;
+gap: 20px;
 
- 
+
 
 }
 
@@ -109,20 +111,25 @@ body {
 
 .pagina-vendas {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: left;
+  align-items: left;
   height: 100vh;
-  flex-direction: column;
+  flex-direction: center;
   gap: 20px;
+  padding: 40px;
+  max-width: 960px;
+  margin: 0 auto;
+  box-sizing: border-box;
+
 }
 
 .container-vendas .btn {
-  width: 200px;
+  width: 100px;
 }
 
 header {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   padding: 20px 30px;
 
 }
@@ -133,7 +140,7 @@ main {
   grid-template-columns: auto auto auto;
   gap: 20px;
   max-width: 960px;
-  margin: 0 auto;
+  margin: 0 right;
   box-sizing: border-box;
 }
 
@@ -150,7 +157,8 @@ a {
   width: 100%;
   border: none;
   border-radius: 4px;
-  margin: 8px 0;;
+  margin: 8px 0;
+  ;
 }
 
 
@@ -161,19 +169,20 @@ a {
 
 
 .w-100 {
-    width: 100%;
+  width: 100%;
 }
 
-.btn-row{
-    display: flex;
-    justify-content: flex-end;
-   padding:16px 0;
-float:right;
- gap: 10px;
+.btn-row {
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px 0;
+  margin-right: auto;
+  gap: 10px;
+  position: left: 0;
 }
 
 .w-80 {
-    width: 80%;
+  width: 80%;
 
 }
 
@@ -186,11 +195,140 @@ float:right;
 header img.logo-image {
   height: 100px;
 }
+
 .logo {
   font-family: 'Libre Barcode 128 Text', cursive;
   font-size: 36px;
-  color: #521e3d;;
+  color: #521e3d;
+  ;
   user-select: none;
   white-space: nowrap;
-  text-align: center;
+  text-align: right;
+
 }
+
+
+.pagina-cadastro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  gap: 50px
+  padding: 80px;
+  max-width: 960px;
+  margin: 0 auto;
+  box-sizing: border-box;
+
+}
+
+.container-cadastro.btn {
+  width: 200px;
+}
+
+.container-cadastro {
+  width: 300px;
+}
+
+.container-vendas {
+  width: 300px;
+}
+
+.pagina-cadastro header {
+  background-color: #521e3d;
+  
+
+  .pagina-cashback {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 20px;    
+  padding: 40px;
+  max-width: 960px;
+  margin: 0 auto;   
+  box-sizing: border-box;
+} 
+
+
+     }
+
+    header {
+      background-color: #521e3d
+      color: white;
+      text-align: center;
+      padding: 25px 0;
+      font-size: 1.8em;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 60px auto;
+      background-color: white;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      padding: 40px;
+      text-align: center;
+    }
+
+    .cliente-nome {
+      font-size: 1.2em;
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    .cashback-valor {
+      font-size: 2.5em;
+      color: #521e3d
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .expira-em {
+      font-size: 1.1em;
+      color: #666;
+      margin-bottom: 25px;
+    }
+
+    .barra-expiracao {
+      background-color: #e0e0e0;
+      border-radius: 10px;
+      height: 20px;
+      overflow: hidden;
+      margin: 25px 0;
+    }
+
+    .progresso {
+      background-color: #27ae60;
+      height: 100%;
+      width: 75%; /* porcentagem do tempo restante */
+      transition: width 0.5s;
+    }
+
+    .botao-usar {
+      background-color: #521e3d
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 8px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .botao-usar:hover {
+      background-color: #239a55;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      padding: 15px;
+      font-size: 0.9em;
+      color: #777;
+    }
+
+    .logo {
+      width: 100px;
+      margin-bottom: 15px;
+    }
