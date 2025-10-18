@@ -1,53 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>cadastro</title>
 </head>
+
 <body>
-    
-<form action="cadastro.html">
 
-    <h2>Cadastro de Cliente</h2>
+    <form action="cadastro.html">
 
-    <label for="Nome/Razao Social">Nome/Razao Social</label><br>
-    <input type="text" id="Nome/Razao Social" name="Nome/Razao Social" required> <br>
+        <h2>Cadastro de Cliente</h2>
 
-    <label for="CNPJ/CPF">CNPJ/CPF</label> <br>
-    <input type="text" id="CNPJ/CPF" name="CNPJ/CPF" required> <br>
+        <label for="Nome/Razao Social">Nome/Razao Social</label><br>
+        <input type="text" id="Nome/Razao Social" name="Nome/Razao Social" required> <br>
 
-    <label for="Endereço">Endereço</label> <br>
-    <input type="text" id="Endereço" name="Endereço" required> <br>
+        <label for="CNPJ/CPF">CNPJ/CPF</label> <br>
+        <input type="text" id="CNPJ/CPF" name="CNPJ/CPF" required> <br>
 
-    <label for="Telefone">Telefone</label> <br>
-    <input type="text" id="Telefone" name="Telefone" required> <br>
+        <label for="Endereço">Endereço</label> <br>
+        <input type="text" id="Endereço" name="Endereço" required> <br>
 
-    <label for="Email">Email</label> <br>
-    <input type="email" id="Email" name="Email" required> <br><br>
+        <label for="Telefone">Telefone</label> <br>
+        <input type="text" id="Telefone" name="Telefone" required> <br>
 
-    
-
-    <h2>Casdastro tipo de  pagamento</h2>
-    
-    <label for="formaPagamento">Forma de Pagamento:</label>
-    <select id="formaPagamento" name="formaPagamento" required> 
-        <option value="">Selecione</option>
-        <option value="cartaoCredito">Cartão de Crédito</option>
-        <option value="boleto">Boleto</option>
-        <option value="pix">Pix</option>
-
-        
-        <div>
-            <button> Cadastrar</button>
-            <button type="submit">Cadastrar</button>
-</div>
-    </select>
-    <br><br>
-</form>
+        <label for="Email">Email</label> <br>
+        <input type="email" id="Email" name="Email" required> <br><br>
 
 
 
-    
+        <h2>Casdastro tipo de pagamento</h2>
+
+        <label for="formaPagamento">Forma de Pagamento:</label>
+        <select id="formaPagamento" name="formaPagamento" required>
+            <option value="">Selecione</option>
+            <option value="cartaoCredito">Cartão de Crédito</option>
+            <option value="boleto">Boleto</option>
+            <option value="pix">Pix</option>
+
+
+            <div>
+                <button> Cadastrar</button>
+                <button type="submit">Cadastrar</button>
+            </div>
+        </select>
+        <br><br>
+    </form>
+
+    <footer>
+        <button class="btn">Voltar</button>
+        <button class="btn">Avançar</button>
+    </footer>
+
+
 </body>
 </html>

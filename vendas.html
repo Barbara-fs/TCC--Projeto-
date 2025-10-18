@@ -9,61 +9,66 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=arrow_back" />
 </head>
 
 <body class="Input de vendas">
 
-
-
-   <div class="box">
-        <div class="w-100">
   <header>
-    
-    <a href="opcoes.html">
-      <img src="imagens/Logo Verkaufe conectados.jpeg" alt="logo Verkaufe conectados" class="logo-image">
-    </a>
-
+    <div class="logo">
+      <a href="opcoes.html">
+        Verkaufe <br> Conectados
+      </a>
+    </div>
   </header>
 
-  <main>
-    <div>
+  <span class="material-symbols-outlined">
+    arrow_back
+  </span>
 
 
-      <form action="input Vendas">
-        <h2> Input de Venda </h2>
-        <br>
+  <div class="box">
+    <div class="w-100">
 
+      <main>
         <div>
-<wbr></wbr>
+
+
+          <form action="input Vendas">
+            <h2> Input de Venda </h2>
+            <br>
+
+            <div>
+              <wbr></wbr>
 
 
 
 
 
 
-         <input type="Código" placeholder="Código do cliente">
-         <br>
+              <input type="Código" placeholder="Código do cliente">
+              <br>
 
-         </div>
-          
-         
+            </div>
+
+
             <div class=" btn-row w-80"></div>
-         
-  
-    <button onclick="window.location.href='cadastro.html'">Novo Cliente </button>
 
 
-    
-    </div>
+            <button onclick="window.location.href='cadastro.html'">Novo Cliente </button>
+
+
+
+        </div>
 
 
 
 
 
         <div label for="Nome/Razao Social">Nome/Razao Social</label><br>
-          <input type="text" id="Nome/Razao Social" name="Nome/Razao Social" required> <br
-
-          label for= "CNPJ/CPF"> CNPJ/CPF </label> <br>
+          <input type="text" id="Nome/Razao Social" name="Nome/Razao Social" required> <br label for="CNPJ/CPF">
+          CNPJ/CPF </label> <br>
           <input type="text" id="CNPJ/CPF" name="CNPJ/CPF" required>
           <br>
           <label for="Código do produto">Código do produto</label><br>
@@ -77,9 +82,9 @@
 
 
           <label for=" Preço"> Preço</label> <br>
-          <input type="text" id=" Preço" name=" Preço" required ><br>
+          <input type="text" id=" Preço" name=" Preço" required><br>
 
-<br>
+          <br>
 
           <div class="input-group">
             <form action="Endereço de Entrega">
@@ -88,71 +93,72 @@
           <body>
             <h2> Endereço de Entrega </h2>
           </body>
-<br>
+          <br>
 
 
-<input type="CEP" placeholder="CEP">
+          <input type="CEP" placeholder="CEP">
 
-<input type="Endereço" placeholder="Endereço">
+          <input type="Endereço" placeholder="Endereço">
 
-<input type="Número" placeholder="Número">
-<input type="Complemento" placeholder="Complemento">
-<input type="Bairro" placeholder="Bairro">
+          <input type="Número" placeholder="Número">
+          <input type="Complemento" placeholder="Complemento">
+          <input type="Bairro" placeholder="Bairro">
 
-<input type="Cidade" placeholder="Cidade">
-<input type="Estado" placeholder="Estado">  
-<input type="País" placeholder="País">
-
-
-
-
-        
-         
-          
-         <br>
+          <input type="Cidade" placeholder="Cidade">
+          <input type="Estado" placeholder="Estado">
+          <input type="País" placeholder="País">
 
 
 
 
 
+
+
+          <br>
+
+
+
+
+
+        </div>
+
+        <body>
+          <br>
+          <h2> Pagamentos </h2>
+
+          <br>
+          <div class="input-group">
+
+
+            <label for="formaPagamento">Forma de Pagamento:</label>
+            <select id="formaPagamento" name="formaPagamento" required>
+              <option value="">Selecione</option>
+              <option value="cartaoCredito">Cartão de Crédito</option>
+              <option value="boleto">Boleto</option>
+              <option value="pix">PIX</option>
+              <option value="dinheiro">Dinheiro</option>
+            </select>
+          </div>
+          <div class="double-button">
+            <button class="btn">Salvar</button>
+            <button class="btn">Cancelar</button>
+          </div>
+
+          <br>
+
+          <h2>Evolução de vendas</h2>
+
+          <div class="grafico-container">
+            <canvas id="grafico-container"></canvas>
+
+
+
+          </div>
     </div>
+    </main>
 
-    <body>
-       <br>
-      <h2> Pagamentos </h2>
-
-<br>
-      <div class="input-group">
-
-
-        <label for="formaPagamento">Forma de Pagamento:</label>
-        <select id="formaPagamento" name="formaPagamento" required>
-          <option value="">Selecione</option>
-          <option value="cartaoCredito">Cartão de Crédito</option>
-          <option value="boleto">Boleto</option>
-          <option value="pix">PIX</option>
-          <option value="dinheiro">Dinheiro</option>
-        </select>
-      </div>
-      <div class="double-button">
-        <button class="btn">Salvar</button>
-        <button class="btn">Cancelar</button>
-      </div>
-
-<br>
-
-      <h2>Evolução de vendas</h2>
-    
-    <div class="grafico-container">
-        <canvas id="grafico-container"></canvas>
-
- 
-
-    </div>
-      </div>
-  </main>
-
-  <script src="vendas.js"></script>
+    <script src="vendas.js"></script>
 </body>
 </form>
+
 </html>
