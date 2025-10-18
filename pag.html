@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verkaufe Conectados - Pagamento</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background-color: #f4fff7;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #27ae60;
+      color: white;
+      text-align: center;
+      padding: 25px 0;
+      font-size: 1.8em;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      background-color: white;
+      border-radius: 20px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      padding: 40px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #27ae60;
+      margin-bottom: 30px;
+    }
+
+    .pagamento-opcao {
+      display: flex;
+      align-items: center;
+      border: 2px solid #27ae60;
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .pagamento-opcao:hover {
+      background-color: #e9fbee;
+    }
+
+    .pagamento-opcao img {
+      width: 50px;
+      height: 50px;
+      margin-right: 15px;
+    }
+
+    .pagamento-opcao input[type="radio"] {
+      margin-right: 10px;
+      accent-color: #27ae60;
+      transform: scale(1.2);
+    }
+
+    .botao-pagar {
+      display: block;
+      width: 100%;
+      background-color: #27ae60;
+      color: white;
+      border: none;
+      padding: 15px;
+      border-radius: 10px;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-top: 20px;
+    }
+
+    .botao-pagar:hover {
+      background-color: #239a55;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      padding: 15px;
+      font-size: 0.9em;
+      color: #777;
+    }
+
+    .logo {
+      display: block;
+      margin: 0 auto 20px;
+      width: 100px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>Verkaufe Conectados</header>
+
+  <div class="container">
+    <img src="https://cdn-icons-png.flaticon.com/512/891/891462.png" alt="Logo Verkaufe Conectados" class="logo">
+    <h2>Escolha sua forma de pagamento</h2>
+
+    <label class="pagamento-opcao">
+      <input type="radio" name="forma-pagamento" value="pix">
+      <img src="https://cdn-icons-png.flaticon.com/512/882/882704.png" alt="Pix">
+      <div>
+        <strong>Pix</strong><br>
+        Pagamento instantâneo e sem taxas.
+      </div>
+    </label>
+
+    <label class="pagamento-opcao">
+      <input type="radio" name="forma-pagamento" value="boleto">
+      <img src="https://cdn-icons-png.flaticon.com/512/633/633652.png" alt="Boleto">
+      <div>
+        <strong>Boleto Bancário</strong><br>
+        Prazo de até 3 dias úteis para compensação.
+      </div>
+    </label>
+
+    <button class="botao-pagar">Confirmar Pagamento</button>
+  </div>
+
+  <footer>
+    &copy; 2025 Verkaufe Conectados - Todos os direitos reservados.
+  </footer>
+
+</body>
+</html>
+

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Status do Pedido</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            text-align: center;
+            padding: 50px;
+        }
+
+        h1 {
+            color: #521e3d;
+        }
+
+        .status-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .status-step {
+            position: relative;
+            width: 150px;
+            padding: 20px;
+            background-color: #fff;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+
+        .status-step.active {
+            border-color: #2e7d32;
+            background-color: #e8f5e9;
+        }
+
+        .status-step::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -30px;
+            width: 30px;
+            height: 3px;
+            background-color: #521e3d;
+            transform: translateY(-50%);
+        }
+
+        .status-step:last-child::after {
+            display: none;
+        }
+
+        .status-step.active::after {
+            background-color: #2e7d32;
+        }
+
+        .status-icon {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Status do Pedido</h1>
+
+    <div class="status-container">
+        <div class="status-step active">
+            <div class="status-icon">💳</div>
+            <div>Pagamento Pendente</div>
+        </div>
+        <div class="status-step active">
+            <div class="status-icon">✅</div>
+            <div>Pagamento Aprovado</div>
+        </div>
+        <div class="status-step">
+            <div class="status-icon">📦</div>
+            <div>Pedido Enviado</div>
+        </div>
+        <div class="status-step">
+            <div class="status-icon">🚚</div>
+            <div>Pedido Entregue</div>
+        </div>
+    </div>
+
+</body>
+</html>
