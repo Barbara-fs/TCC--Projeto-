@@ -65,9 +65,11 @@ body {
   font-family: 'Libre Barcode 128 Text', cursive;
   font-size: 36px;
   color: #521e3d;
+  font-weight: 500;
+  text-align: ;
   user-select: none;
-  white-space: nowrap;
-  text-align: right
+  padding: 40px;
+
 }
 
 . {
@@ -136,7 +138,7 @@ header {
 
 main {
   padding: 40px 30px;
-  display: grid;
+  display: ;
   grid-template-columns: auto auto auto;
   gap: 20px;
   max-width: 960px;
@@ -200,7 +202,7 @@ header img.logo-image {
   font-family: 'Libre Barcode 128 Text', cursive;
   font-size: 36px;
   color: #521e3d;
-  ;
+
   user-select: none;
   white-space: nowrap;
   text-align: right;
@@ -256,10 +258,10 @@ header img.logo-image {
       color: white;
       text-align: center;
       padding: 25px 0;
-      font-size: 1.8em;
+    }
       font-weight: bold;
       letter-spacing: 1px;
-    }
+    
 
     .container {
       max-width: 600px;
@@ -332,3 +334,61 @@ header img.logo-image {
       width: 100px;
       margin-bottom: 15px;
     }
+
+   .status-da-venda {
+
+  
+}
+
+
+     h1 { display: block;
+            color: #521e3d;
+        }
+
+        .status-container {
+            display: flex block ;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .status-step {
+            position: relative;
+            width: 150px;
+            padding: 20px;
+            background-color: #521e3d;
+            border: 2px solid #521e3d;
+            border-radius: 10px;
+            transition: 0.3s;
+            font-family: #e0e0eae8
+        }
+
+        .status-step.active {
+            border-color: #521e3d;
+            background-color:#521e3d;
+        }
+
+        .status-step::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -30px;
+            width: 30px;
+            height: 3px;
+            background-color: #521e3d;
+            transform: translateY(-50%);
+        }
+
+        .status-step:last-child::after {
+            display: none;
+        }
+
+        .status-step.active::after {
+            background-color: #521e3d;
+        }
+
+        .status-icon {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
