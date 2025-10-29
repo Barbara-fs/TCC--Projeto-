@@ -288,7 +288,7 @@ header {
 
 .cliente-nome {
   font-size: 1.2em;
-  color: #555;
+  color: #521e3d;
   margin-bottom: 10px;
 }
 
@@ -301,7 +301,7 @@ header {
 
 .expira-em {
   font-size: 1.1em;
-  color: #f2ecec;
+  color: #521e3d;
   margin-bottom: 25px;
 }
 
@@ -314,9 +314,9 @@ header {
 }
 
 .progresso {
-  background-color: #27ae60;
-  height: 100%;
-  width: 75%;
+  background-color: #521e3d;
+  height: 50%;
+  width: 50%;
   /* porcentagem do tempo restante */
   transition: width 0.5s;
 }
@@ -341,7 +341,7 @@ footer {
   margin-top: 50px;
   padding: 15px;
   font-size: 0.9em;
-  color: #777;
+  color: #521e3d;
 }
 
 <<<<<<< HEAD
@@ -350,7 +350,7 @@ footer {
       margin-top: 50px;
       padding: 15px;
       font-size: 0.9em;
-      color: #777;
+      color: #521e3d;
     }
 
     .logo {
@@ -374,13 +374,14 @@ footer {
             align-items: center;
             gap: 30px;
             margin-top: 40px;
+            
         }
 
         .status-step {
             position: relative;
             width: 150px;
             padding: 20px;
-            background-color: #e0e0eae8
+            background-color: #521e3d
             border: 2px solid #521e3d
             border-radius: 10px;
             transition: 0.3s;
@@ -389,17 +390,17 @@ footer {
 
         .status-step.active {
             border-color: #521e3d;
-            background-color:#e0e0eae8;
+            background-color:#521e3d;
         }
 
         .status-step::after {
-            content: '';
+            content: ''#521e3d
             position: absolute;
             top: 50%;
             right: -30px;
             width: 30px;
             height: 3px;
-            background-color: #e0e0eae8;
+            background-color: #521e3d;
         }
             transform: translateY(-50%);
         
@@ -413,6 +414,7 @@ footer {
         }
 
         .status-icon {
+          
             font-size: 30px;
             margin-bottom: 10px;
         }
