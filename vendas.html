@@ -162,3 +162,444 @@
 </form>
 
 </html>
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vendas Conectadas</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Chart.js for the graph -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+    <!-- Load Inter font -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fb;
+        }
+        .container-shadow {
+            box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+
+<body class="min-h-screen flex flex-col items-center p-4 sm:p-8">
+
+    <!-- Header -->
+    <header class="w-full max-w-4xl mb-6">
+        <div class="flex justify-between items-center p-4 bg-white rounded-xl shadow-lg">
+            <div class="text-xl font-extrabold text-indigo-700 leading-tight">
+                <a href="#" onclick="showView('input')" class="hover:text-indigo-900 transition duration-150">
+                    Verkaufe <br> Conectados
+                </a>
+            </div>
+            <div id="user-info" class="text-xs text-gray-500 truncate">
+                ID: Carregando...
+            </div>
+        </div>
+    </header>
+    
+    <main class="w-full max-w-4xl bg-white rounded-xl p-6 md:p-8 container-shadow">
+
+        <!-- Message Box/Modal (Replacing alert()) -->
+        <div id="message-box" class="fixed inset-0 bg-gray-600 bg-opacity-50 hidden z-50 items-center justify-center">
+            <div class="bg-white p-6 rounded-lg shadow-2xl max-w-sm w-full">
+                <p id="message-text" class="text-lg font-medium text-gray-700 mb-4"></p>
+                <button onclick="hideMessageBox()" class="w-full bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition">Fechar</button>
+            </div>
+        </div>
+
+        <!-- Input View -->
+        <div id="input-view" class="view">
+            <h1 class="text-3xl font-bold text-gray-800 mb-6 border-b pb-3 flex items-center">
+                <svg onclick="showView('chart')" class="w-6 h-6 mr-3 cursor-pointer text-indigo-600 hover:text-indigo-800 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                Input de Venda
+            </h1>
+
+            <form id="sales-form" class="space-y-6">
+                <!-- CLIENT SECTION -->
+                <section class="p-4 border rounded-lg bg-gray-50">
+                    <h2 class="text-xl font-semibold text-gray-700 mb-4">Dados do Cliente</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <input type="text" id="codigoCliente" placeholder="Código do cliente" required
+                            class="p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500">
+                        <input type="text" id="nomeRazaoSocial" placeholder="Nome/Razão Social" required
+                            class="p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500">
+                        <input type="text" id="cnpjCpf" placeholder="CNPJ/CPF" required
+                            class="p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500">
+                    </div>
+                    <button type="button" onclick="showMessageBox('Função de cadastro de novo cliente simulada. Iríamos para a tela de Cadastro.')"
+                            class="mt-4 w-full md:w-auto px-4 py-2 bg-indigo-100 text-indigo-700 font-medium rounded-lg hover:bg-indigo-200 transition duration-150">
+                        + Novo Cliente
+                    </button>
+                </section>
+
+                <!-- PRODUCT SECTION -->
+                <section class="p-4 border rounded-lg">
+                    <h2 class="text-xl font-semibold text-gray-700 mb-4">Itens da Venda</h2>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <input type="text" id="codigoProduto" placeholder="Código do produto" required
+                            class="col-span-2 p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500">
+                        <input type="text" id="produtoNome" placeholder="Produto" required
+                            class="col-span-2 p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500">
+                        <input type="number" id="quantidade" placeholder="Quantidade" required min="1"
+                            class="p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500">
+                        <input type="number" step="0.01" id="preco" placeholder="Preço Unitário" required min="0.01"
+                            class="p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500">
+                    </div>
+                </section>
+
+                <!-- DELIVERY SECTION (Simplified) -->
+                <section class="p-4 border rounded-lg bg-gray-50">
+                    <h2 class="text-xl font-semibold text-gray-700 mb-4">Endereço de Entrega</h2>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <input type="text" id="cep" placeholder="CEP" class="p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500">
+                        <input type="text" id="endereco" placeholder="Endereço" class="col-span-2 p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500">
+                        <input type="text" id="numero" placeholder="Número" class="p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500">
+                        <input type="text" id="complemento" placeholder="Complemento" class="p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500">
+                        <input type="text" id="bairro" placeholder="Bairro" class="p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500">
+                        <input type="text" id="cidade" placeholder="Cidade" class="p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500">
+                        <input type="text" id="estado" placeholder="Estado" class="p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500">
+                        <input type="text" id="pais" placeholder="País" class="p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500">
+                    </div>
+                </section>
+
+                <!-- PAYMENT SECTION -->
+                <section class="p-4 border rounded-lg">
+                    <h2 class="text-xl font-semibold text-gray-700 mb-4">Pagamentos</h2>
+                    <select id="formaPagamento" required
+                        class="w-full p-3 border border-gray-300 rounded-lg bg-white focus:ring-indigo-500 focus:border-indigo-500">
+                        <option value="" disabled selected>Selecione a Forma de Pagamento</option>
+                        <option value="CartaoCredito">Cartão de Crédito</option>
+                        <option value="Boleto">Boleto</option>
+                        <option value="PIX">PIX</option>
+                        <option value="Dinheiro">Dinheiro</option>
+                    </select>
+                </section>
+
+                <!-- Action Buttons -->
+                <div class="flex flex-col sm:flex-row justify-end space-y-3 sm:space-y-0 sm:space-x-3 pt-4">
+                    <button type="button" onclick="resetForm()"
+                        class="flex-1 sm:flex-none px-6 py-3 border border-gray-300 text-gray-700 font-bold rounded-xl hover:bg-gray-100 transition duration-150">
+                        Cancelar
+                    </button>
+                    <button type="submit"
+                        class="flex-1 sm:flex-none px-6 py-3 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700 transition duration-150 shadow-md">
+                        Salvar Venda
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Chart View -->
+        <div id="chart-view" class="view hidden">
+            <h1 class="text-3xl font-bold text-gray-800 mb-6 border-b pb-3 flex items-center">
+                <svg onclick="showView('input')" class="w-6 h-6 mr-3 cursor-pointer text-indigo-600 hover:text-indigo-800 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                Evolução de Vendas
+            </h1>
+            <div class="bg-gray-50 p-4 rounded-lg">
+                <canvas id="sales-chart" class="w-full h-80"></canvas>
+            </div>
+            <p class="mt-4 text-sm text-gray-500 text-center">
+                O gráfico é atualizado em tempo real com os dados salvos no Firestore.
+            </p>
+        </div>
+
+    </main>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, addDoc, onSnapshot, query, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        
+        // --- MANDATORY FIREBASE SETUP AND GLOBAL VARS ---
+        setLogLevel('Debug'); // Mandatory logging
+        
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
+        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+        
+        let db, auth, userId = null;
+        let isAuthReady = false;
+        let salesChart;
+
+        // Message Box implementation (Replacing alert() and confirm())
+        function showMessageBox(message) {
+            document.getElementById('message-text').innerText = message;
+            document.getElementById('message-box').classList.remove('hidden');
+            document.getElementById('message-box').classList.add('flex');
+        }
+
+        window.hideMessageBox = function() {
+            document.getElementById('message-box').classList.add('hidden');
+            document.getElementById('message-box').classList.remove('flex');
+        }
+
+        // View Toggler (Simulating Navigation)
+        window.showView = function(viewId) {
+            document.querySelectorAll('.view').forEach(view => {
+                view.classList.add('hidden');
+            });
+            document.getElementById(`${viewId}-view`).classList.remove('hidden');
+        }
+
+
+        // Initialization and Authentication
+        const app = initializeApp(firebaseConfig);
+        db = getFirestore(app);
+        auth = getAuth(app);
+        
+        // Auth Listener
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                userId = user.uid;
+            } else {
+                if (!initialAuthToken) {
+                    try {
+                        const anonUserCredential = await signInAnonymously(auth);
+                        userId = anonUserCredential.user.uid;
+                    } catch (error) {
+                        console.error("Anonymous sign-in failed:", error);
+                    }
+                }
+            }
+            isAuthReady = true;
+            console.log("Auth State Changed. User ID:", userId);
+            document.getElementById('user-info').innerText = 'ID: ' + userId;
+
+            // Once auth is ready, set up listeners
+            if (userId) {
+                setupRealtimeSalesListener(userId);
+            }
+        });
+
+        // Custom Token Sign-In
+        if (initialAuthToken) {
+            signInWithCustomToken(auth, initialAuthToken)
+                .catch((error) => {
+                    console.error("Custom token sign-in failed:", error);
+                    // Fallback to anonymous sign-in if custom token fails
+                    signInAnonymously(auth).catch(err => console.error("Anonymous sign-in fallback failed:", err));
+                });
+        } else {
+            // Start anonymous sign-in if no token is provided
+            signInAnonymously(auth).catch(err => console.error("Anonymous sign-in failed during startup:", err));
+        }
+
+        // --- FIREBASE DATA HANDLING ---
+
+        const getSalesCollectionRef = (uid) => {
+            const collectionPath = `/artifacts/${appId}/users/${uid}/sales_data`;
+            return collection(db, collectionPath);
+        };
+
+        async function saveSale(saleData) {
+            if (!isAuthReady || !userId) {
+                showMessageBox("Aguarde a autenticação do usuário.");
+                return;
+            }
+
+            try {
+                // Add timestamp for sorting and chart grouping
+                const saleWithTimestamp = {
+                    ...saleData,
+                    timestamp: serverTimestamp() 
+                };
+
+                await addDoc(getSalesCollectionRef(userId), saleWithTimestamp);
+                showMessageBox("Venda salva com sucesso!");
+                resetForm(); // Clear form after successful save
+            } catch (e) {
+                console.error("Erro ao adicionar documento: ", e);
+                showMessageBox("Erro ao salvar a venda. Veja o console para detalhes.");
+            }
+        }
+
+        function setupRealtimeSalesListener(uid) {
+            const q = query(getSalesCollectionRef(uid));
+
+            onSnapshot(q, (snapshot) => {
+                let salesData = [];
+                snapshot.forEach((doc) => {
+                    const data = doc.data();
+                    // Ensure we only process documents with valid numeric values and a timestamp
+                    if (data.quantidade && data.preco && data.timestamp) {
+                        salesData.push({
+                            ...data,
+                            id: doc.id,
+                            // Convert Firestore Timestamp to Date object if it exists and is not a pending ServerTimestamp
+                            date: data.timestamp.toDate ? data.timestamp.toDate() : new Date(), 
+                            total: parseFloat(data.quantidade) * parseFloat(data.preco)
+                        });
+                    }
+                });
+                console.log("Dados de vendas atualizados:", salesData);
+                updateSalesChart(salesData);
+            }, (error) => {
+                console.error("Erro ao ouvir vendas em tempo real:", error);
+            });
+        }
+
+
+        // --- CHART LOGIC (Chart.js) ---
+
+        function getMonthlySalesData(sales) {
+            const monthlyTotals = {};
+            const now = new Date();
+            const currentYear = now.getFullYear();
+
+            // Filter and aggregate sales for the last 6 months
+            for (const sale of sales) {
+                if (sale.date.getFullYear() === currentYear) {
+                    const monthKey = sale.date.getMonth(); // 0-indexed month
+                    
+                    if (!monthlyTotals[monthKey]) {
+                        monthlyTotals[monthKey] = 0;
+                    }
+                    monthlyTotals[monthKey] += sale.total;
+                }
+            }
+
+            // Prepare chart labels (last 6 months) and data
+            const labels = [];
+            const data = [];
+            
+            // Start 5 months ago (6 months including current)
+            for (let i = 5; i >= 0; i--) {
+                const month = (now.getMonth() - i + 12) % 12; // Circular month index
+                const date = new Date(currentYear, month, 1);
+                
+                // Format label (e.g., 'Out 2025')
+                labels.push(date.toLocaleString('pt-BR', { month: 'short', year: 'numeric' }));
+                
+                // Get data, defaulting to 0
+                data.push(monthlyTotals[month] || 0);
+            }
+
+            return { labels, data };
+        }
+
+        function updateSalesChart(sales) {
+            const { labels, data } = getMonthlySalesData(sales);
+            const ctx = document.getElementById('sales-chart').getContext('2d');
+
+            if (salesChart) {
+                salesChart.data.labels = labels;
+                salesChart.data.datasets[0].data = data;
+                salesChart.update();
+            } else {
+                salesChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Total de Vendas (R$)',
+                            data: data,
+                            backgroundColor: 'rgba(79, 70, 229, 0.5)',
+                            borderColor: 'rgba(79, 70, 229, 1)',
+                            borderWidth: 2,
+                            fill: true,
+                            tension: 0.3,
+                            pointBackgroundColor: 'rgba(79, 70, 229, 1)',
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'top',
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        let label = context.dataset.label || '';
+                                        if (label) {
+                                            label += ': ';
+                                        }
+                                        if (context.parsed.y !== null) {
+                                            label += new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(context.parsed.y);
+                                        }
+                                        return label;
+                                    }
+                                }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                title: {
+                                    display: true,
+                                    text: 'Valor Total (R$)'
+                                },
+                                ticks: {
+                                    callback: function(value, index, ticks) {
+                                        return 'R$ ' + value.toLocaleString('pt-BR');
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
+
+        // --- FORM HANDLING ---
+
+        document.getElementById('sales-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Validate that required inputs (marked with 'required') are filled
+            if (!this.checkValidity()) {
+                this.reportValidity();
+                return;
+            }
+            
+            const saleData = {
+                codigoCliente: document.getElementById('codigoCliente').value,
+                nomeRazaoSocial: document.getElementById('nomeRazaoSocial').value,
+                cnpjCpf: document.getElementById('cnpjCpf').value,
+                codigoProduto: document.getElementById('codigoProduto').value,
+                produtoNome: document.getElementById('produtoNome').value,
+                // Parse as numbers
+                quantidade: parseFloat(document.getElementById('quantidade').value),
+                preco: parseFloat(document.getElementById('preco').value),
+
+                // Delivery (optional)
+                cep: document.getElementById('cep').value,
+                endereco: document.getElementById('endereco').value,
+                numero: document.getElementById('numero').value,
+                cidade: document.getElementById('cidade').value,
+
+                // Payment
+                formaPagamento: document.getElementById('formaPagamento').value,
+            };
+
+            saveSale(saleData);
+        });
+
+        window.resetForm = function() {
+             document.getElementById('sales-form').reset();
+             showMessageBox("Formulário de venda cancelado e limpo.");
+        }
+        
+        // Default view on load
+        document.addEventListener('DOMContentLoaded', () => {
+            showView('input');
+        });
+
+    </script>
+</body>
+
+</html>

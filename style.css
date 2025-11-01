@@ -14,7 +14,9 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  text-align: center;
 }
+
 
 
 .pagina-inicial {
@@ -87,13 +89,15 @@ body {
   width: 100px;
 }
 
+
+
 .card {
   width: 200px;
   background: #521e3d;
   border-radius: 8px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-  display: flex;
-  justify-content: center;
+  display:block;
+  justify-content: star;
   align-items: center ;
   height: 120px;
   font-size: 24px;
@@ -104,6 +108,7 @@ body {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   border: 2px #e0eae8;
 }
+
 
 .card:hover {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
@@ -420,3 +425,4 @@ footer {
         }
 =======
 >>>>>>> cdfb42cb3ca2d79e7855f9de3311bc90c8229ff6
+
